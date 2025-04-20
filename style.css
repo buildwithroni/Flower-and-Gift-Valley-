@@ -8,8 +8,8 @@
 }
 
 body {
-  background: #f8f8f8;
-  color: #333;
+  background: #f0f8ff; /* Light blue background */
+  color: #444;
   line-height: 1.6;
 }
 
@@ -23,22 +23,73 @@ h1, h2, h3 {
 section, footer, .hero {
   padding: 60px 20px;
   text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease-out forwards;
+  border-bottom: 1px solid #eee; /* Light bottom border for sections */
+}
+
+section:last-child, footer {
+  border-bottom: none;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .section-title {
   font-size: 2.5em;
   margin-bottom: 1.5em;
-  border-bottom: 2px solid #b8860b; /* Gold accent */
+  border-bottom: 3px solid #ff69b4; /* Pink accent */
   display: inline-block;
   padding-bottom: 0.5em;
 }
 
+/* Header */
+.main-header {
+  background-color: #fff;
+  color: #333;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.main-header .logo {
+  font-size: 1.8em;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+}
+
+.main-header .menu-button {
+  background: none;
+  border: none;
+  color: #555;
+  font-size: 1.1em;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.main-header .menu-button:hover {
+  background-color: #f0f0f0;
+}
+
 /* Hero section */
 .hero {
-  background: url('https://i.ibb.co/g9LrFbM/hero-bg.jpg') center/cover no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://i.ibb.co/g9LrFbM/hero-bg.jpg') center/cover no-repeat;
   color: #fff;
   padding: 150px 20px;
   position: relative;
+  border-bottom: 2px solid #ddd; /* Light border below hero */
 }
 
 .hero h1 {
@@ -55,7 +106,7 @@ section, footer, .hero {
 
 .hero-buttons button {
   padding: 14px 28px;
-  border: 1px solid #b8860b; /* Gold border */
+  border: 2px solid #ff69b4; /* Pink border */
   background: transparent;
   color: #fff;
   font-size: 1.1em;
@@ -66,7 +117,7 @@ section, footer, .hero {
 }
 
 .hero-buttons button:hover {
-  background-color: #b8860b; /* Gold background on hover */
+  background-color: #ff69b4; /* Pink background on hover */
   color: #fff;
 }
 
@@ -83,14 +134,16 @@ section, footer, .hero {
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, border 0.3s;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 1px solid transparent; /* Initial transparent border */
 }
 
 .offerings .tile:hover {
   transform: translateY(-8px);
+  border-color: #add8e6; /* Light blue border on hover */
 }
 
 .offerings .tile img {
@@ -111,7 +164,8 @@ section, footer, .hero {
 
 /* Gallery Section */
 .gallery {
-  background: #f2f2f2;
+  background: #f8f8f8;
+  border-bottom: 1px solid #eee;
 }
 
 .gallery-grid {
@@ -126,14 +180,20 @@ section, footer, .hero {
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, border 0.3s;
+  border: 1px solid transparent;
 }
 
 .gallery-grid img:hover {
   transform: scale(1.05);
+  border-color: #98fb98; /* Light green border on hover */
 }
 
 /* About Section */
+.about {
+  border-bottom: 1px solid #eee;
+}
+
 .about p {
   font-size: 1.1em;
   line-height: 1.8;
@@ -143,6 +203,11 @@ section, footer, .hero {
 }
 
 /* Why Choose Us Section */
+.why-choose {
+  background-color: #fffafa; /* Light yellow background */
+  border-bottom: 1px solid #eee;
+}
+
 .why-choose .tiles {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -150,26 +215,15 @@ section, footer, .hero {
   padding: 30px 0;
 }
 
-.why-choose .tile {
-  background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .why-choose .tile:hover {
   transform: translateY(-8px);
+  border-color: #dda0dd; /* Plum border on hover */
 }
 
-.why-choose .tile img {
-  width: 60px;
-  height: 60px;
+.why-choose .tile i {
+  font-size: 2.5em;
   margin-bottom: 15px;
-  object-fit: contain;
+  color: #ff69b4; /* Pink icon color */
 }
 
 .why-choose .tile h3 {
@@ -182,6 +236,10 @@ section, footer, .hero {
 }
 
 /* Delivery Areas Section */
+.delivery-areas {
+  border-bottom: 1px solid #eee;
+}
+
 .delivery-areas p {
   font-size: 1.1em;
   line-height: 1.8;
@@ -203,7 +261,7 @@ footer p {
 }
 
 footer strong {
-  color: #b8860b; /* Gold accent */
+  color: #ff69b4; /* Pink accent */
   font-weight: 700;
 }
 
@@ -234,7 +292,7 @@ footer strong {
 
 .popup-form h3 {
   margin-bottom: 25px;
-  color: #b8860b; /* Gold accent */
+  color: #ff69b4; /* Pink accent */
   font-size: 1.8em;
 }
 
@@ -256,7 +314,7 @@ footer strong {
 
 .popup-form button {
   padding: 12px 24px;
-  background: #b8860b; /* Gold accent */
+  background: #ff69b4; /* Pink accent */
   border: none;
   color: white;
   border-radius: 6px;
@@ -266,7 +324,7 @@ footer strong {
 }
 
 .popup-form button:hover {
-  background-color: #996f09; /* Darker gold on hover */
+  background-color: #e04ba0; /* Darker pink on hover */
 }
 
 .close-btn {
@@ -286,6 +344,13 @@ footer strong {
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
+  .main-header {
+    padding: 15px;
+    font-size: 0.9em;
+  }
+  .main-header .logo {
+    font-size: 1.5em;
+  }
   .hero {
     padding: 120px 20px;
   }
@@ -310,13 +375,17 @@ footer strong {
   .offerings .tile, .why-choose .tile {
     padding: 20px;
   }
-  .offerings .tile img, .why-choose .tile img {
+  .offerings .tile img {
     width: 40px;
     height: 40px;
     margin-bottom: 10px;
   }
   .offerings .tile h3, .why-choose .tile h3 {
     font-size: 1em;
+  }
+  .why-choose .tile i {
+    font-size: 2em;
+    margin-bottom: 10px;
   }
   .gallery-grid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -333,6 +402,14 @@ footer strong {
 }
 
 @media (max-width: 480px) {
+  .main-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .main-header .menu-button {
+    margin-top: 10px;
+    align-self: flex-end;
+  }
   .hero {
     padding: 100px 20px;
   }
