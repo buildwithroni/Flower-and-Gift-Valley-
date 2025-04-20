@@ -3,14 +3,60 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Ixora Flower - Premium Flowers, Cakes & Gifts Delivery</title>
-    <meta name="description" content="Ixora Flower: Delivering premium fresh flowers, delicious cakes, and personalized gifts across West Bengal. Order online for same-day delivery and experience our exceptional service.">
-    <meta name="keywords" content="flowers, cake, gifts, delivery, online order, West Bengal, same-day delivery, premium flowers, personalized gifts, flower bouquets, fresh cream cakes, chocolate bouquets">
+    <title>Ixora Flower - Exquisite Floral Arrangements & Gifts</title>
+    <meta name="description" content="Ixora Flower: Discover delicate and exquisite floral arrangements and unique gifts. Browse our collections and order to bring beauty to every occasion.">
+    <meta name="keywords" content="flowers, floral arrangements, gifts, online delivery, Ixora Flower, delicate flowers, unique gifts">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Temporary style for slider container */
+        .hero-slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            height: 400px; /* Adjust as needed */
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .slider-text-container {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .slider-title {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .slider-subtitle {
+            font-size: 1.2em;
+        }
+    </style>
 </head>
-<body class="dark-teal-theme">
+<body class="red-black-theme">
 
 <header class="main-header">
     <div class="logo">Ixora Flower</div>
@@ -18,16 +64,31 @@
 </header>
 
 <section class="hero">
-    <div class="hero-content">
-        <h1>Exquisite Flowers & Delightful Gifts, Delivered with Love</h1>
-        <p>Discover our curated collection of fresh flowers, gourmet cakes, and unique personalized gifts. Enjoy same-day delivery across West Bengal and make every occasion special.</p>
-        <div class="hero-buttons">
-            <button onclick="showPopup()">Order Now</button>
-            <button onclick="openWhatsApp()">WhatsApp Us</button>
+    <div class="hero-slider-container">
+        <div class="hero-slide active" style="background-image: url('slide_1.jpg');">
+            <div class="slider-text-container">
+                <h2 class="slider-title">Ixora Flower</h2>
+                <p class="slider-subtitle">Experience the artistry of floral design.</p>
+            </div>
         </div>
-    </div>
-    <div class="hero-image">
-        <img src="https://i.ibb.co/g9LrFbM/hero-bg.jpg" alt="Premium Flowers and Gifts">
+        <div class="hero-slide" style="background-image: url('slide_2.jpg');">
+            <div class="slider-text-container">
+                <h2 class="slider-title">Delicate Blooms</h2>
+                <p class="slider-subtitle">Finest selections for every sentiment.</p>
+            </div>
+        </div>
+        <div class="hero-slide" style="background-image: url('slide_3.jpg');">
+            <div class="slider-text-container">
+                <h2 class="slider-title">Gifts of Elegance</h2>
+                <p class="slider-subtitle">Thoughtfully curated for lasting impressions.</p>
+            </div>
+        </div>
+        <div class="hero-slide" style="background-image: url('slide_4.jpg');">
+            <div class="slider-text-container">
+                <h2 class="slider-title">Order with Ease</h2>
+                <p class="slider-subtitle">Seamless delivery to your doorstep.</p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -154,5 +215,23 @@
 </div>
 
 <script src="script.js"></script>
+<script>
+    const slides = document.querySelectorAll('.hero-slide');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[index].classList.add('active');
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }
+
+    // Start the slider
+    showSlide(currentIndex);
+    setInterval(nextSlide, 3000); // Change slide every 3 seconds
+</script>
 </body>
 </html>
