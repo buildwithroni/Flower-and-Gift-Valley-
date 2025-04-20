@@ -1,87 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flower and Gift Valley</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ixora Flower</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="Flower and Gift Valley Logo">
-        </div>
-    </header>
 
-    <section id="fresh-flowers">
-        <h2>Fresh Flowers Bouquet</h2>
-        <img src="fresh_flowers_image_1.jpg" alt="Fresh Flowers Bouquet 1">
-        <img src="fresh_flowers_image_2.jpg" alt="Fresh Flowers Bouquet 2">
-        <img src="fresh_flowers_image_3.jpg" alt="Fresh Flowers Bouquet 3">
-    </section>
+  <div class="hero">
+    <h1>Ixora Flower</h1>
+    <p>Curated Flowers, Fresh Cakes & Personalized Gifts Delivered With Love</p>
+    <div class="hero-buttons">
+      <button onclick="showPopup()">Call Now</button>
+      <button onclick="showPopup()">WhatsApp Us</button>
+    </div>
+  </div>
 
-    <section id="fresh-cream-cakes">
-        <h2>Fresh Cream Cake</h2>
-        <img src="fresh_cream_cake_image_1.jpg" alt="Fresh Cream Cake 1">
-        <img src="fresh_cream_cake_image_2.jpg" alt="Fresh Cream Cake 2">
-        <img src="fresh_cream_cake_image_3.jpg" alt="Fresh Cream Cake 3">
-    </section>
+  <section class="offerings">
+    <h2 class="section-title">What We Offer</h2>
+    <div class="tiles">
+      <div class="tile">
+        <img src="flower_logo.png" alt="Fresh Flower Bouquets">
+        Fresh Flower Bouquets
+      </div>
+      <div class="tile">
+        <img src="artificial_flower_logo.png" alt="Artificial Flower Bouquets">
+        Artificial Flower Bouquets
+      </div>
+      <div class="tile">
+        <img src="cake_logo.png" alt="Fresh Cream Cakes">
+        Fresh Cream Cakes
+      </div>
+      <div class="tile">
+        <img src="chocolate_logo.png" alt="Chocolate Bouquets">
+        Chocolate Bouquets
+      </div>
+      <div class="tile">
+        <img src="gift_logo.png" alt="Personalized Gift Items">
+        Personalized Gift Items
+      </div>
+    </div>
+  </section>
 
-    <section id="artificial-flowers">
-        <h2>Artificial Flowers Bouquet</h2>
-        <img src="artificial_flowers_image_1.jpg" alt="Artificial Flowers Bouquet 1">
-        <img src="artificial_flowers_image_2.jpg" alt="Artificial Flowers Bouquet 2">
-        <img src="artificial_flowers_image_3.jpg" alt="Artificial Flowers Bouquet 3">
-    </section>
+  <section class="gallery">
+    <h2 class="section-title">Our Gallery</h2>
+    <div class="gallery-grid">
+      <img src="gallery_img_1.jpg" alt="Gallery Image 1">
+      <img src="gallery_img_2.jpg" alt="Gallery Image 2">
+      <img src="gallery_img_3.jpg" alt="Gallery Image 3">
+      <img src="gallery_img_4.jpg" alt="Gallery Image 4">
+      <img src="gallery_img_5.jpg" alt="Gallery Image 5">
+      <img src="gallery_img_6.jpg" alt="Gallery Image 6">
+    </div>
+  </section>
 
-    <section id="chocolate-bouquets">
-        <h2>Chocolate Bouquet</h2>
-        <img src="chocolate_bouquet_image_1.jpg" alt="Chocolate Bouquet 1">
-        <img src="chocolate_bouquet_image_2.jpg" alt="Chocolate Bouquet 2">
-        <img src="chocolate_bouquet_image_3.jpg" alt="Chocolate Bouquet 3">
-    </section>
+  <section class="about">
+    <h2 class="section-title">About Us</h2>
+    <p>Founded by Sovan Adak in 2016, Ixora Flower is a premium gifting & floral delivery brand. We don’t have a walk-in store, but our Bidhannagar dispatch center coordinates same-day deliveries with 6 in-house delivery boys and 30+ partners across West Bengal.</p>
+  </section>
 
-    <section id="chocolate-arrangements">
-        <h2>Chocolate Arrangements</h2>
-        <img src="chocolate_arrangement_image_1.jpg" alt="Chocolate Arrangement 1">
-        <img src="chocolate_arrangement_image_2.jpg" alt="Chocolate Arrangement 2">
-        <img src="chocolate_arrangement_image_3.jpg" alt="Chocolate Arrangement 3">
-    </section>
+  <section class="why-choose">
+    <h2 class="section-title">Why Choose Us</h2>
+    <div class="tiles">
+      <div class="tile">
+        <img src="fresh_logo.png" alt="Fresh & Custom-Made">
+        Fresh & Custom-Made
+      </div>
+      <div class="tile">
+        <img src="delivery_logo.png" alt="Same-Day Delivery">
+        Same-Day Delivery
+      </div>
+      <div class="tile">
+        <img src="packaging_logo.png" alt="Premium Tile Packaging">
+        Premium Tile Packaging
+      </div>
+      <div class="tile">
+        <img src="partners_logo.png" alt="30+ Trusted Partners">
+        30+ Trusted Partners
+      </div>
+      <div class="tile">
+        <img src="whatsapp_logo.png" alt="Direct WhatsApp Support">
+        Direct WhatsApp Support
+      </div>
+      <div class="tile">
+        <img src="delivery_area_logo.png" alt="Delivery Across Multiple Districts">
+        Delivery Across Multiple Districts
+      </div>
+    </div>
+  </section>
 
-    <section id="personalized-gifts">
-        <h2>Personalized Gift Items</h2>
-        <img src="personalized_gift_image_1.jpg" alt="Personalized Gift Item 1">
-        <img src="personalized_gift_image_2.jpg" alt="Personalized Gift Item 2">
-        <img src="personalized_gift_image_3.jpg" alt="Personalized Gift Item 3">
-    </section>
+  <section class="delivery-areas">
+    <h2 class="section-title">Our Delivery Areas</h2>
+    <p>We deliver all over North 24 Parganas, South 24 Parganas, Howrah, Hooghly, Nadia, and several other districts in West Bengal and India. Some orders may be available for delivery outside these major districts upon request.</p>
+  </section>
 
-    <section id="fnp-partnership">
-        <h2>Official Gifting Partner at FNP</h2>
-        <img src="fnp_partnership_image_1.jpg" alt="FNP Partnership">
-    </section>
+  <footer>
+    <p>Contact us at <strong>+91 94747 58147</strong> or WhatsApp for orders and queries.</p>
+    <p>Ixora Flower - Delivering Happiness Since 2016</p>
+  </footer>
 
-    <section id="gallery">
-        <h2>Gallery</h2>
-        <img src="gallery_image_1.jpg" alt="Gallery Image 1">
-        <img src="gallery_image_2.jpg" alt="Gallery Image 2">
-        <img src="gallery_image_3.jpg" alt="Gallery Image 3">
-        <img src="gallery_image_4.jpg" alt="Gallery Image 4">
-        <img src="gallery_image_5.jpg" alt="Gallery Image 5">
-        <img src="gallery_image_6.jpg" alt="Gallery Image 6">
-    </section>
+  <div id="popup" class="popup-overlay">
+    <div class="popup-form">
+      <span class="close-btn" onclick="closePopup()">×</span>
+      <h3>Contact Us for Your Order</h3>
+      <form id="contactForm" onsubmit="handleFormSubmit(event)">
+        <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
+        <select id="services" name="services" required>
+          <option value="">Select a Service</option>
+          <option value="Fresh Flowers">Fresh Flowers Bouquet</option>
+          <option value="Artificial Flowers">Artificial Flowers Bouquet</option>
+          <option value="Fresh Cakes">Fresh Cream Cake</option>
+          <option value="Chocolate Bouquet">Chocolate Bouquet</option>
+          <option value="Personalized Gifts">Personalized Gift Items</option>
+        </select>
+        <input type="text" id="location" name="location" placeholder="Location" required>
+        <input type="date" id="date" name="date" required>
+        <input type="tel" id="contactNumber" name="contactNumber" placeholder="Contact Number" required>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
 
-    <section id="contact">
-        <h2>Contact Us & Place Order</h2>
-        <p>Call or WhatsApp on:</p>
-        <p><a href="tel:+919474758147">+91 94747 58147</a></p>
-        <p><a href="https://wa.me/919474758147" target="_blank">WhatsApp +91 94747 58147</a></p>
-        <p>Owner: Sovan Adak</p>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Flower and Gift Valley. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
