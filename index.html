@@ -118,32 +118,36 @@
     </div>
 </section>
 
-<section class="gallery">
-    <h2 class="section-title">Our Gallery</h2>
-    <div class="gallery-grid">
-        <img src="gallery_img_1.jpg" alt="Gallery Image 1">
-        <img src="gallery_img_2.jpg" alt="Gallery Image 2">
-        <img src="gallery_img_3.jpg" alt="Gallery Image 3">
-        <img src="gallery_img_4.jpg" alt="Gallery Image 4">
-        <img src="gallery_img_5.jpg" alt="Gallery Image 5">
-        <img src="gallery_img_6.jpg" alt="Gallery Image 6">
-        <img src="gallery_img_7.jpg" alt="Gallery Image 7">
-        <img src="gallery_img_8.jpg" alt="Gallery Image 8">
-        <img src="gallery_img_9.jpg" alt="Gallery Image 9">
-        <img src="gallery_img_10.jpg" alt="Gallery Image 10">
-        <img src="gallery_img_11.jpg" alt="Gallery Image 11">
-        <img src="gallery_img_12.jpg" alt="Gallery Image 12">
-        <img src="gallery_img_13.jpg" alt="Gallery Image 13">
-        <img src="gallery_img_14.jpg" alt="Gallery Image 14">
-        <img src="gallery_img_15.jpg" alt="Gallery Image 15">
-        <img src="gallery_img_16.jpg" alt="Gallery Image 16">
-        <img src="gallery_img_17.jpg" alt="Gallery Image 17">
-        <img src="gallery_img_18.jpg" alt="Gallery Image 18">
-        <img src="gallery_img_19.jpg" alt="Gallery Image 19">
-        <img src="gallery_img_20.jpg" alt="Gallery Image 20">
-        <img src="gallery_img_21.jpg" alt="Gallery Image 21">
-        <img src="gallery_img_22.jpg" alt="Gallery Image 22">
-        <img src="gallery_img_23.jpg" alt="Gallery Image 23">
+<section class="gallery-dynamic">
+    <h2 class="section-title">Dynamic Premium Gallery</h2>
+    <div class="gallery-grid-dynamic">
+        <div class="gallery-box-dynamic">
+            <img src="" alt="Dynamic Gallery Image 1">
+        </div>
+        <div class="gallery-box-dynamic">
+            <img src="" alt="Dynamic Gallery Image 2">
+        </div>
+        <div class="gallery-box-dynamic">
+            <img src="" alt="Dynamic Gallery Image 3">
+        </div>
+        <div class="gallery-box-dynamic">
+            <img src="" alt="Dynamic Gallery Image 4">
+        </div>
+        <div class="gallery-box-dynamic">
+            <img src="" alt="Dynamic Gallery Image 5">
+        </div>
+        <div class="gallery-box-dynamic">
+            <img src="" alt="Dynamic Gallery Image 6">
+        </div>
+        <div class="gallery-box-dynamic">
+            <img src="" alt="Dynamic Gallery Image 7">
+        </div>
+        <div class="gallery-box-dynamic">
+            <img src="" alt="Dynamic Gallery Image 8">
+        </div>
+        <div class="gallery-box-dynamic">
+            <img src="" alt="Dynamic Gallery Image 9">
+        </div>
     </div>
 </section>
 
@@ -232,6 +236,68 @@
     // Start the slider
     showSlide(currentIndex);
     setInterval(nextSlide, 3000); // Change slide every 3 seconds
+
+    // WhatsApp Redirection for Offerings
+    const offeringItems = document.querySelectorAll('.offering-item');
+    const whatsappNumber = '+919474758147'; // Replace with your actual WhatsApp number
+
+    offeringItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const offering = item.getAttribute('data-offering');
+            const message = `Enquiry about: ${offering}`;
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        });
+    });
+
+    // WhatsApp button in Hero Section (if you had one previously)
+    function openWhatsApp() {
+        const message = `Hello! I'm interested in your products/services.`;
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappURL, '_blank');
+    }
+
+    // Dynamic Gallery
+    const dynamicGalleryBoxes = document.querySelectorAll('.gallery-box-dynamic');
+    const allGalleryImages = [
+        'gallery_img_1.jpg',
+        'gallery_img_2.jpg',
+        'gallery_img_3.jpg',
+        'gallery_img_4.jpg',
+        'gallery_img_5.jpg',
+        'gallery_img_6.jpg',
+        'gallery_img_7.jpg',
+        'gallery_img_8.jpg',
+        'gallery_img_9.jpg',
+        'gallery_img_10.jpg',
+        'gallery_img_11.jpg',
+        'gallery_img_12.jpg',
+        'gallery_img_13.jpg',
+        'gallery_img_14.jpg',
+        'gallery_img_15.jpg',
+        'gallery_img_16.jpg',
+        'gallery_img_17.jpg',
+        'gallery_img_18.jpg',
+        'gallery_img_19.jpg',
+        'gallery_img_20.jpg',
+        'gallery_img_21.jpg',
+        'gallery_img_22.jpg',
+        'gallery_img_23.jpg'
+    ];
+    const numberOfImages = allGalleryImages.length;
+    const changeInterval = 5500; // 5.5 seconds
+
+    dynamicGalleryBoxes.forEach((box, index) => {
+        let currentImageIndex = Math.floor(Math.random() * numberOfImages); // Start with a random image
+
+        function changeImage() {
+            box.querySelector('img').src = allGalleryImages[currentImageIndex];
+            currentImageIndex = (currentImageIndex + 1) % numberOfImages;
+        }
+
+        changeImage(); // Initial image load
+        setInterval(changeImage, changeInterval);
+    });
 </script>
 </body>
 </html>
