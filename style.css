@@ -20,7 +20,9 @@ h1, h2, h3 {
     font-weight: bold; /* Make headings bold for Arial */
 }
 
-section, footer, .hero {
+section,
+footer,
+.hero {
     padding: 60px 20px;
     text-align: center;
     opacity: 0;
@@ -89,12 +91,48 @@ footer {
     border-bottom: 2px solid #222;
 }
 
-.hero-slide .slider-title {
-    font-size: 2.5em;
-    font-weight: bold; /* Make slider title bold for Arial */
+.hero-slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 400px; /* Adjust as needed */
 }
 
-.hero-slide .slider-subtitle {
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.slider-text-container {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.slider-title {
+    font-size: 2.5em;
+    font-weight: bold; /* Make slider title bold for Arial */
+    margin-bottom: 10px;
+}
+
+.slider-subtitle {
     font-size: 1.2em;
 }
 
@@ -128,6 +166,13 @@ footer {
     border-color: #ff4d4d; /* Red border on hover */
 }
 
+.offerings .tile img {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 15px;
+    object-fit: contain;
+}
+
 .offerings .tile h3 {
     font-size: 1.3em;
     font-weight: bold; /* Make offering titles bold for Arial */
@@ -136,31 +181,48 @@ footer {
     color: #fff;
 }
 
-/* Gallery Section */
-.gallery {
-    background: #000; /* Black background */
-    border-bottom: 1px solid #222;
+/* Dynamic Gallery Section */
+.gallery-dynamic {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #1a1a1a; /* Slightly different dark background */
 }
 
-.gallery-grid {
+.gallery-dynamic .section-title {
+    font-size: 2.8em;
+    margin-bottom: 2em;
+    color: #fff;
+    border-bottom: 3px solid #ff4d4d;
+    display: inline-block;
+    padding-bottom: 0.7em;
+}
+
+.gallery-grid-dynamic {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 30px 20px;
+    grid-template-columns: repeat(3, 1fr); /* Creates a 3x3 grid */
+    gap: 20px; /* Spacing between boxes */
+    padding: 20px;
 }
 
-.gallery-grid img {
-    width: 100%;
-    height: auto;
+.gallery-box-dynamic {
+    background-color: #222;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
-    transition: transform 0.3s ease-in-out, border 0.3s;
-    border: 1px solid transparent;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+    aspect-ratio: 1 / 1; /* Maintain a square aspect ratio for the boxes */
 }
 
-.gallery-grid img:hover {
-    transform: scale(1.05);
-    border-color: #ff4d4d; /* Red border on hover */
+.gallery-box-dynamic:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-box-dynamic img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure images fill the box without distortion */
+    border-radius: 8px;
 }
 
 /* About Section */
@@ -395,10 +457,10 @@ footer strong {
         margin-bottom: 10px;
     }
 
-    .gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    .gallery-grid-dynamic {
+        grid-template-columns: repeat(2, 1fr); /* Adjust grid for smaller screens */
         gap: 15px;
-        padding: 20px 10px;
+        padding: 15px;
     }
 
     .popup-form {
@@ -446,5 +508,9 @@ footer strong {
     .offerings .tile,
     .why-choose .tile {
         text-align: center;
+    }
+
+    .gallery-grid-dynamic {
+        grid-template-columns: 1fr; /* Single column on very small screens */
     }
 }
