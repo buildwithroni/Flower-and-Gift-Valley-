@@ -7,54 +7,10 @@
     <meta name="description" content="Ixora Flower: Discover delicate and exquisite floral arrangements and unique gifts. Browse our collections and order to bring beauty to every occasion.">
     <meta name="keywords" content="flowers, floral arrangements, gifts, online delivery, Ixora Flower, delicate flowers, unique gifts">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edwardian+Script+ITC&family=Playwrite+US+Modern&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        /* Temporary style for slider container */
-        .hero-slider-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            height: 400px; /* Adjust as needed */
-        }
-
-        .hero-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #fff;
-        }
-
-        .hero-slide.active {
-            opacity: 1;
-        }
-
-        .slider-text-container {
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text */
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        .slider-title {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        .slider-subtitle {
-            font-size: 1.2em;
-        }
-    </style>
 </head>
 <body>
 
@@ -65,7 +21,7 @@
     </div>
     <nav class="main-nav">
         <button class="menu-button"><i class="fas fa-bars"></i> Menu</button>
-        <ul class="nav-links">
+        <ul class="nav-links desktop-nav">
             <li><a href="#hero">Home</a></li>
             <li><a href="#offerings">Offerings</a></li>
             <li><a href="#gallery">Gallery</a></li>
@@ -74,67 +30,66 @@
             <li><a href="#delivery-areas">Delivery</a></li>
             <li><a href="#contact-popup" onclick="showPopup()">Contact</a></li>
         </ul>
+        <div class="mobile-menu-icon">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </nav>
 </header>
 
 <section id="hero" class="hero">
     <div class="hero-slider-container">
-        <div class="hero-slide active" style="background-image: url('slide_1.jpg');">
+        <div class="hero-slide active" style="background-image: url('hero-slide1.jpg');">
             <div class="slider-text-container">
                 <h2 class="slider-title">Ixora Flower</h2>
                 <p class="slider-subtitle">Experience the artistry of floral design.</p>
             </div>
         </div>
-        <div class="hero-slide" style="background-image: url('slide_2.jpg');">
+        <div class="hero-slide" style="background-image: url('hero-slide2.jpg');">
             <div class="slider-text-container">
                 <h2 class="slider-title">Delicate Blooms</h2>
                 <p class="slider-subtitle">Finest selections for every sentiment.</p>
             </div>
         </div>
-        <div class="hero-slide" style="background-image: url('slide_3.jpg');">
+        <div class="hero-slide" style="background-image: url('hero-slide3.jpg');">
             <div class="slider-text-container">
                 <h2 class="slider-title">Gifts of Elegance</h2>
                 <p class="slider-subtitle">Thoughtfully curated for lasting impressions.</p>
-            </div>
-        </div>
-        <div class="hero-slide" style="background-image: url('slide_4.jpg');">
-            <div class="slider-text-container">
-                <h2 class="slider-title">Order with Ease</h2>
-                <p class="slider-subtitle">Seamless delivery to your doorstep.</p>
             </div>
         </div>
     </div>
 </section>
 
 <section id="offerings" class="offerings">
-    <h2 class="section-title">What We Offer</h2>
-    <div class="tiles">
-        <div class="tile offering-item" data-offering="Fresh Flower Bouquets">
+    <h2 class="section-title playwrite-font">What We Offer</h2>
+    <div class="tiles offer-grid">
+        <div class="tile offering-item">
             <img src="flower_logo.png" alt="Fresh Flower Bouquets">
-            <h3>Fresh Flower Bouquets</h3>
+            <h3 class="edwardian-font">Fresh Flower Bouquets</h3>
         </div>
-        <div class="tile offering-item" data-offering="Artificial Flower Bouquets">
+        <div class="tile offering-item">
             <img src="artificial_flower_logo.png" alt="Artificial Flower Bouquets">
-            <h3>Artificial Flower Bouquets</h3>
+            <h3 class="edwardian-font">Artificial Flower Bouquets</h3>
         </div>
-        <div class="tile offering-item" data-offering="Fresh Cream Cakes">
+        <div class="tile offering-item">
             <img src="cake_logo.png" alt="Fresh Cream Cakes">
-            <h3>Fresh Cream Cakes</h3>
+            <h3 class="edwardian-font">Fresh Cream Cakes</h3>
         </div>
-        <div class="tile offering-item" data-offering="Chocolate Bouquets">
+        <div class="tile offering-item">
             <img src="chocolate_logo.png" alt="Chocolate Bouquets">
-            <h3>Chocolate Bouquets</h3>
+            <h3 class="edwardian-font">Chocolate Bouquets</h3>
         </div>
-        <div class="tile offering-item" data-offering="Personalized Gift Items">
+        <div class="tile offering-item">
             <img src="gift_logo.png" alt="Personalized Gift Items">
-            <h3>Personalized Gift Items</h3>
+            <h3 class="edwardian-font">Personalized Gift Items</h3>
         </div>
     </div>
 </section>
 
 <section id="gallery" class="gallery-dynamic">
-    <h2 class="section-title">Our Premium Gallery</h2>
-    <div class="gallery-grid-dynamic">
+    <h2 class="section-title playwrite-font">Our Premium Gallery</h2>
+    <div class="gallery-grid-dynamic gallery-container">
         <div class="gallery-box-dynamic">
             <img src="gallery_img_1.jpg" alt="Dynamic Gallery Image 1">
         </div>
@@ -153,67 +108,58 @@
         <div class="gallery-box-dynamic">
             <img src="gallery_img_6.jpg" alt="Dynamic Gallery Image 6">
         </div>
-        <div class="gallery-box-dynamic">
-            <img src="gallery_img_7.jpg" alt="Dynamic Gallery Image 7">
-        </div>
-        <div class="gallery-box-dynamic">
-            <img src="gallery_img_8.jpg" alt="Dynamic Gallery Image 8">
-        </div>
-        <div class="gallery-box-dynamic">
-            <img src="gallery_img_9.jpg" alt="Dynamic Gallery Image 9">
-        </div>
     </div>
 </section>
 
 <section id="about" class="about">
-    <h2 class="section-title">About Us</h2>
-    <p>Founded by Sovan Adak in 2016, Ixora Flower is a premium gifting & floral delivery brand. We don’t have a walk-in store, but our Bidhannagar dispatch center coordinates same-day deliveries with 6 in-house delivery boys and 30+ partners across West Bengal.</p>
+    <h2 class="section-title playwrite-font">About Us</h2>
+    <p class="edwardian-font">Founded by Sovan Adak in 2016, Ixora Flower is a premium gifting & floral delivery brand. We don’t have a walk-in store, but our Bidhannagar dispatch center coordinates same-day deliveries with 6 in-house delivery boys and 30+ partners across West Bengal.</p>
 </section>
 
 <section id="why-choose" class="why-choose">
-    <h2 class="section-title">Why Choose Us</h2>
-    <div class="tiles">
-        <div class="tile">
-            <i class="fas fa-leaf fa-2x"></i>
-            <h3>Fresh & Custom-Made</h3>
+    <h2 class="section-title playwrite-font">Why Choose Us</h2>
+    <div class="tiles choose-grid">
+        <div class="tile choose-item">
+            <img src="images/fresh.png" alt="Fresh & Custom-Made">
+            <p class="edwardian-font">Fresh & Custom-Made</p>
         </div>
-        <div class="tile">
-            <i class="fas fa-shipping-fast fa-2x"></i>
-            <h3>Same-Day Delivery</h3>
+        <div class="tile choose-item">
+            <img src="images/delivery.png" alt="Same-Day Delivery">
+            <p class="edwardian-font">Same-Day Delivery</p>
         </div>
-        <div class="tile">
-            <i class="fas fa-gift fa-2x"></i>
-            <h3>Premium Packaging</h3>
+        <div class="tile choose-item">
+            <img src="images/packaging.png" alt="Premium Packaging">
+            <p class="edwardian-font">Premium Packaging</p>
         </div>
-        <div class="tile">
-            <i class="fas fa-handshake fa-2x"></i>
-            <h3>Trusted Partners</h3>
+        <div class="tile choose-item">
+            <img src="images/partners.png" alt="Trusted Partners">
+            <p class="edwardian-font">Trusted Partners</p>
         </div>
-        <div class="tile">
-            <i class="fab fa-whatsapp fa-2x"></i>
-            <h3>Direct WhatsApp Support</h3>
+        <div class="tile choose-item">
+            <img src="images/whatsapp.png" alt="Direct WhatsApp Support">
+            <p class="edwardian-font">Direct WhatsApp Support</p>
         </div>
-        <div class="tile">
-            <i class="fas fa-location-arrow fa-2x"></i>
-            <h3>Wide Delivery Area</h3>
+        <div class="tile choose-item">
+            <img src="images/delivery-area.png" alt="Wide Delivery Area">
+            <p class="edwardian-font">Wide Delivery Area</p>
         </div>
     </div>
 </section>
 
 <section id="delivery-areas" class="delivery-areas">
-    <h2 class="section-title">Our Delivery Areas</h2>
-    <p>We deliver all over North 24 Parganas, South 24 Parganas, Howrah, Hooghly, Nadia, and several other districts in West Bengal and India. Some orders may be available for delivery outside these major districts upon request.</p>
+    <h2 class="section-title playwrite-font">Our Delivery Areas</h2>
+    <p class="edwardian-font">We deliver all over North 24 Parganas, South 24 Parganas, Howrah, Hooghly, Nadia, and several other districts in West Bengal and India. Some orders may be available for delivery outside these major districts upon request.</p>
 </section>
 
 <footer>
-    <p>Contact us at <strong>+91 94747 58147</strong> or WhatsApp for orders and queries.</p>
-    <p>Ixora Flower - Delivering Happiness Since 2016</p>
+    <p class="edwardian-font">Contact us at <strong>+91 94747 58147</strong> or WhatsApp for orders and queries.</p>
+    <p class="edwardian-font">Ixora Flower - Delivering Happiness Since 2016</p>
 </footer>
 
 <div id="contact-popup" class="popup-overlay">
     <div class="popup-form">
         <span class="close-btn" onclick="closePopup()">×</span>
-        <h3>Contact Us for Your Order</h3>
+        <h3 class="playwrite-font">Contact Us for Your Order</h3>
         <form id="contactForm" onsubmit="handleFormSubmit(event)">
             <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
             <select id="services" name="services" required>
@@ -227,33 +173,54 @@
             <input type="text" id="location" name="location" placeholder="Location" required>
             <input type="date" id="date" name="date" required>
             <input type="tel" id="contactNumber" name="contactNumber" placeholder="Contact Number" required>
-            <button type="submit">Submit</button>
+            <button type="submit" class="playwrite-font">Submit</button>
         </form>
     </div>
 </div>
 
+<div class="mobile-menu">
+    <div class="menu-header">
+        <div class="logo">
+            <img src="logo-small.png" alt="Ixora Flower Logo Small">
+        </div>
+        <div class="close-button">&times;</div>
+    </div>
+    <nav>
+        <ul class="nav-links mobile-only">
+            <li><a href="#hero" class="edwardian-font">Home</a></li>
+            <li><a href="#offerings" class="edwardian-font">Offerings</a></li>
+            <li><a href="#gallery" class="edwardian-font">Gallery</a></li>
+            <li><a href="#about" class="edwardian-font">About</a></li>
+            <li><a href="#why-choose" class="edwardian-font">Why Choose Us</a></li>
+            <li><a href="#delivery-areas" class="edwardian-font">Delivery</a></li>
+            <li><a href="#contact-popup" class="edwardian-font" onclick="showPopup()">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+
 <script src="script.js"></script>
 <script>
+    // Hero Slider
     const slides = document.querySelectorAll('.hero-slide');
-    let currentIndex = 0;
+    let heroIndex = 0;
+    const heroInterval = 7000; // 7 seconds
 
-    function showSlide(index) {
+    function showHeroSlide(index) {
         slides.forEach(slide => slide.classList.remove('active'));
         slides[index].classList.add('active');
     }
 
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
+    function nextHeroSlide() {
+        heroIndex = (heroIndex + 1) % slides.length;
+        showHeroSlide(heroIndex);
     }
 
-    // Start the slider
-    showSlide(currentIndex);
-    setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    showHeroSlide(heroIndex);
+    setInterval(nextHeroSlide, heroInterval);
 
     // WhatsApp Redirection for Offerings
     const offeringItems = document.querySelectorAll('.offering-item');
-    const whatsappNumber = '+919474758147'; // Replace with your actual WhatsApp number
+    const whatsappNumber = '+919474758147';
 
     offeringItems.forEach(item => {
         item.addEventListener('click', () => {
@@ -264,17 +231,16 @@
         });
     });
 
-    // Show the popup form
+    // Show/Close Contact Popup
     function showPopup() {
         document.getElementById('contact-popup').style.display = 'flex';
     }
 
-    // Close the popup form
     function closePopup() {
         document.getElementById('contact-popup').style.display = 'none';
     }
 
-    // Handle form submission
+    // Handle Form Submission
     function handleFormSubmit(event) {
         event.preventDefault();
         const fullName = document.getElementById('fullName').value;
@@ -282,81 +248,71 @@
         const location = document.getElementById('location').value;
         const date = document.getElementById('date').value;
         const contactNumber = document.getElementById('contactNumber').value;
-
-        // Example of form data logging for processing
         console.log('Form Submitted: ', { fullName, services, location, date, contactNumber });
-
-        // You would typically send this data to a server here
-        // For now, we'll just show a confirmation message
-
         alert('Thank you for contacting Ixora Flower! We will get back to you soon.');
-
-        // Close the form
         closePopup();
-
-        // Optionally, you can clear the form fields after submission
         document.getElementById('contactForm').reset();
     }
 
-    // Dynamic Gallery
+    // Dynamic Gallery (6 boxes changing every 5.5 seconds with fade animation)
     const dynamicGalleryBoxes = document.querySelectorAll('.gallery-box-dynamic');
     const allGalleryImages = [
-        'gallery_img_1.jpg',
-        'gallery_img_2.jpg',
-        'gallery_img_3.jpg',
-        'gallery_img_4.jpg',
-        'gallery_img_5.jpg',
-        'gallery_img_6.jpg',
-        'gallery_img_7.jpg',
-        'gallery_img_8.jpg',
-        'gallery_img_9.jpg',
-        'gallery_img_10.jpg',
-        'gallery_img_11.jpg',
-        'gallery_img_12.jpg',
-        'gallery_img_13.jpg',
-        'gallery_img_14.jpg',
-        'gallery_img_15.jpg',
-        'gallery_img_16.jpg',
-        'gallery_img_17.jpg',
-        'gallery_img_18.jpg',
-        'gallery_img_19.jpg',
-        'gallery_img_20.jpg',
-        'gallery_img_21.jpg',
-        'gallery_img_22.jpg',
-        'gallery_img_23.jpg'
+        'gallery_img_1.jpg', 'gallery_img_2.jpg', 'gallery_img_3.jpg', 'gallery_img_4.jpg',
+        'gallery_img_5.jpg', 'gallery_img_6.jpg', 'gallery_img_7.jpg', 'gallery_img_8.jpg',
+        'gallery_img_9.jpg', 'gallery_img_10.jpg', 'gallery_img_11.jpg', 'gallery_img_12.jpg',
+        'gallery_img_13.jpg', 'gallery_img_14.jpg', 'gallery_img_15.jpg', 'gallery_img_16.jpg',
+        'gallery_img_17.jpg', 'gallery_img_18.jpg', 'gallery_img_19.jpg', 'gallery_img_20.jpg',
+        'gallery_img_21.jpg', 'gallery_img_22.jpg', 'gallery_img_23.jpg'
     ];
     const numberOfImages = allGalleryImages.length;
-    const changeInterval = 5500; // 5.5 seconds
+    const galleryInterval = 5500; // 5.5 seconds
 
-    dynamicGalleryBoxes.forEach((box, index) => {
-        let currentImageIndex = Math.floor(Math.random() * numberOfImages); // Start with a random image
+    dynamicGalleryBoxes.forEach(box => {
+        let currentImageIndex = Math.floor(Math.random() * numberOfImages);
+        const imgElement = box.querySelector('img');
 
         function changeImage() {
-            const imgElement = box.querySelector('img');
-            if (imgElement) {
+            imgElement.classList.remove('fade-in');
+            setTimeout(() => {
                 imgElement.src = allGalleryImages[currentImageIndex];
-            }
-            currentImageIndex = (currentImageIndex + 1) % numberOfImages;
+                imgElement.classList.add('fade-in');
+                currentImageIndex = (currentImageIndex + 1) % numberOfImages;
+            }, 500); // Adjust fade duration
         }
 
-        changeImage(); // Initial image load
-        setInterval(changeImage, changeInterval);
+        changeImage();
+        setInterval(changeImage, galleryInterval);
     });
 
     // Mobile Menu Toggle
     const menuButton = document.querySelector('.menu-button');
     const navLinks = document.querySelector('.nav-links');
+    const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const closeButton = document.querySelector('.close-button');
 
-    menuButton.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
-    });
-
-    // Close menu on link click (optional, for smoother navigation)
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('open');
+    if (menuButton && navLinks) {
+        menuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('open'); // For the desktop menu on smaller screens if JS is enabled
         });
-    });
+    }
+
+    if (mobileMenuIcon && mobileMenu && closeButton) {
+        mobileMenuIcon.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+
+        closeButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+
+        const mobileLinks = document.querySelectorAll('.nav-links.mobile-only a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+    }
 </script>
 </body>
 </html>
