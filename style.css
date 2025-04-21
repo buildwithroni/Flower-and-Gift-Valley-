@@ -6,13 +6,14 @@ body {
     padding: 0;
     box-sizing: border-box;
     line-height: 1.6;
-    color: #333;
+    color: #333333; /* Charcoal Gray */
+    background-color: #FAF8F5; /* Elegant White */
 }
 
 .section-title {
     text-align: center;
     padding: 2em 0;
-    color: #333;
+    color: #6A2E35; /* Deep Wine */
 }
 
 .playwrite-font {
@@ -25,7 +26,7 @@ body {
 
 /* Header */
 .main-header {
-    background-color: #f8f8f8;
+    background-color: #FAF8F5; /* Elegant White */
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -46,15 +47,16 @@ body {
 .main-header .logo span {
     font-size: 1.2em;
     font-weight: bold;
-    color: #333;
+    color: #6A2E35; /* Deep Wine */
 }
 
 .main-nav .menu-button {
     display: none;
     background: none;
     border: none;
-    font-size: 1.2em;
+    font-size: 1.5em;
     cursor: pointer;
+    color: #6A2E35; /* Deep Wine */
 }
 
 .main-nav .nav-links {
@@ -70,12 +72,12 @@ body {
 
 .main-nav .nav-links li a {
     text-decoration: none;
-    color: #555;
+    color: #333333; /* Charcoal Gray */
     transition: color 0.3s ease;
 }
 
 .main-nav .nav-links li a:hover {
-    color: #007bff;
+    color: #6A2E35; /* Deep Wine */
 }
 
 .mobile-menu-icon {
@@ -88,7 +90,7 @@ body {
 }
 
 .mobile-menu-icon div {
-    background-color: #333;
+    background-color: #6A2E35; /* Deep Wine */
     height: 3px;
     width: 100%;
     border-radius: 2px;
@@ -124,7 +126,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #fff;
+    color: #FAF8F5; /* Elegant White */
 }
 
 .hero-slide.active {
@@ -144,14 +146,14 @@ body {
 
 .slider-subtitle {
     font-size: 1.2em;
-    color: #eee;
+    color: #E8B6B8; /* Floral Pink */
 }
 
 /* Offerings Section */
 .offerings {
     padding: 40px 20px;
     text-align: center;
-    background-color: #f9f9f9;
+    background-color: #FAF8F5; /* Elegant White */
 }
 
 .offer-grid {
@@ -165,7 +167,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #fff;
+    background-color: #EDE3DA; /* Warm Beige */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -187,13 +189,14 @@ body {
 .offering-title {
     margin-top: 15px;
     font-size: 1.2em;
-    color: #444;
+    color: #333333; /* Charcoal Gray */
 }
 
 /* Gallery Section */
 .gallery-dynamic {
     padding: 40px 20px;
     text-align: center;
+    background-color: #EDE3DA; /* Warm Beige */
 }
 
 .gallery-grid-dynamic {
@@ -224,14 +227,14 @@ body {
 .about {
     padding: 40px 20px;
     text-align: center;
-    background-color: #f9f9f9;
+    background-color: #FAF8F5; /* Elegant White */
 }
 
 .about-text {
     max-width: 800px;
     margin: 20px auto;
     line-height: 1.8;
-    color: #555;
+    color: #333333; /* Charcoal Gray */
     padding: 0 15px;
 }
 
@@ -239,6 +242,7 @@ body {
 .why-choose {
     padding: 40px 20px;
     text-align: center;
+    background-color: #FAF8F5; /* Elegant White */
 }
 
 .choose-grid {
@@ -252,7 +256,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #fff;
+    background-color: #EDE3DA; /* Warm Beige */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -273,19 +277,28 @@ body {
 .why-choose-text {
     margin-top: 15px;
     font-size: 1em;
-    color: #444;
+    color: #333333; /* Charcoal Gray */
     text-align: center;
 }
 
-/* Delivery Areas
-    background-color: #f9f9f9;
+.why-choose .fa-whatsapp {
+    font-size: 3em;
+    color: #708C64; /* Moss Green */
+    margin-bottom: 15px;
+}
+
+/* Delivery Areas Section */
+.delivery-areas {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #EDE3DA; /* Warm Beige */
 }
 
 .delivery-content {
     max-width: 800px;
     margin: 20px auto;
     line-height: 1.8;
-    color: #555;
+    color: #333333; /* Charcoal Gray */
     padding: 0 15px;
 }
 
@@ -295,8 +308,8 @@ body {
 
 /* Footer */
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #333333; /* Charcoal Gray */
+    color: #FAF8F5; /* Elegant White */
     text-align: center;
     padding: 20px;
 }
@@ -307,7 +320,7 @@ footer {
 }
 
 footer strong {
-    color: #007bff;
+    color: #E8B6B8; /* Floral Pink */
 }
 
 /* Popup Form Styles */
@@ -325,7 +338,7 @@ footer strong {
 }
 
 .popup-form {
-    background-color: #fff;
+    background-color: #FAF8F5; /* Elegant White */
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -348,13 +361,13 @@ footer strong {
 }
 
 .close-btn:hover {
-    color: #333;
+    color: #6A2E35; /* Deep Wine */
 }
 
 .popup-title {
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
+    color: #6A2E35; /* Deep Wine */
 }
 
 .popup-form input[type="text"],
@@ -367,11 +380,12 @@ footer strong {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1em;
+    color: #333333; /* Charcoal Gray */
 }
 
 .popup-button {
-    background-color: #007bff;
-    color: white;
+    background-color: #6A2E35; /* Deep Wine */
+    color: #FAF8F5; /* Elegant White */
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -382,7 +396,7 @@ footer strong {
 }
 
 .popup-button:hover {
-    background-color: #0056b3;
+    background-color: #4A1D23; /* Darker shade of Deep Wine */
 }
 
 /* Mobile Menu Styles */
@@ -392,7 +406,7 @@ footer strong {
     left: -300px;
     width: 300px;
     height: 100%;
-    background-color: #f8f8f8;
+    background-color: #FAF8F5; /* Elegant White */
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
     z-index: 1001;
     transition: left 0.3s ease-in-out;
@@ -409,7 +423,7 @@ footer strong {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #EDE3DA; /* Warm Beige */
 }
 
 .mobile-menu .menu-header .logo img {
@@ -419,7 +433,7 @@ footer strong {
 .mobile-menu .menu-header .close-button {
     font-size: 2em;
     cursor: pointer;
-    color: #555;
+    color: #6A2E35; /* Deep Wine */
 }
 
 .mobile-menu nav ul {
@@ -432,13 +446,14 @@ footer strong {
     display: block;
     padding: 15px 20px;
     text-decoration: none;
-    color: #333;
-    border-bottom: 1px solid #eee;
+    color: #333333; /* Charcoal Gray */
+    border-bottom: 1px solid #EDE3DA; /* Warm Beige */
     transition: background-color 0.3s ease;
 }
 
 .mobile-menu nav ul li a:hover {
-    background-color: #eee;
+    background-color: #EDE3DA; /* Warm Beige */
+    color: #6A2E35; /* Deep Wine */
 }
 
 /* Media Queries */
