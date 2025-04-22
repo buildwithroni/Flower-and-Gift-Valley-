@@ -33,7 +33,7 @@ body {
     background-color: #FAF8F5; /* Elegant White */
     padding: 15px 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Space out logo, text, and menu */
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -51,7 +51,9 @@ body {
 .main-header .logo-text {
     font-size: 1.8em; /* Slightly larger text */
     color: #6A2E35; /* Deep Wine */
-    margin: 0 auto; /* Center the text */
+    margin: 0; /* Remove default margins */
+    flex-grow: 1; /* Allow text to take up available space */
+    text-align: center; /* Center the text */
 }
 
 .main-nav {
@@ -59,50 +61,21 @@ body {
     align-items: center;
 }
 
+.main-nav .desktop-nav {
+    display: none; /* Hide desktop nav on smaller screens initially */
+}
+
 .main-nav .menu-button {
-    display: none;
     background: none;
     border: none;
     font-size: 1.8em; /* Slightly larger menu icon */
     cursor: pointer;
     color: #6A2E35; /* Deep Wine */
-}
-
-.main-nav .nav-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-}
-
-.main-nav .nav-links li {
-    margin-left: 20px;
-}
-
-.main-nav .nav-links li a {
-    text-decoration: none;
-    color: #333333; /* Charcoal Gray */
-    transition: color 0.3s ease;
-}
-
-.main-nav .nav-links li a:hover {
-    color: #6A2E35; /* Deep Wine */
+    display: block; /* Show menu button */
 }
 
 .mobile-menu-icon {
-    display: none;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 21px;
-    cursor: pointer;
-}
-
-.mobile-menu-icon div {
-    background-color: #6A2E35; /* Deep Wine */
-    height: 3px;
-    width: 100%;
-    border-radius: 2px;
+    display: none; /* Hide the extra mobile menu icon */
 }
 
 /* Hero Section */
@@ -132,23 +105,13 @@ body {
     opacity: 0;
     transition: opacity 1s ease-in-out, transform 0.8s ease-in-out; /* Added transform transition */
     transform: translateX(100%); /* Start off-screen */
+    border-radius: 10px; /* Rounded corners for images */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Floating shadow for images */
 }
 
 .hero-slide.active {
     opacity: 1;
     transform: translateX(0%); /* Slide into view */
-}
-
-.hero-slide:nth-child(1).active {
-    transform: translateX(0%);
-}
-
-.hero-slide:nth-child(2).active {
-    transform: translateX(0%);
-}
-
-.hero-slide:nth-child(3).active {
-    transform: translateX(0%);
 }
 
 /* Offerings Section */
@@ -173,6 +136,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     transition: transform 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Floating shadow for items */
 }
 
 .offering-item:hover {
@@ -215,6 +179,7 @@ body {
 .gallery-box-dynamic {
     overflow: hidden;
     border-radius: 10px; /* Rounded corners for gallery images */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Floating shadow for gallery items */
 }
 
 .gallery-box-dynamic img {
@@ -234,6 +199,7 @@ body {
     padding: 40px 20px;
     text-align: center;
     background-color: #FAF8F5; /* Elegant White */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Floating shadow for about section */
 }
 
 .about-text {
@@ -266,6 +232,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     transition: transform 0.3s ease;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Floating shadow for choose items */
 }
 
 .choose-item:hover {
@@ -290,6 +257,7 @@ body {
     padding: 40px 20px;
     text-align: center;
     background-color: #E8B6B8; /* Floral Pink */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Floating shadow for delivery section */
 }
 
 .delivery-content {
@@ -310,6 +278,7 @@ footer {
     color: #FAF8F5; /* Elegant White */
     text-align: center;
     padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Floating shadow for footer */
 }
 
 .footer-text {
@@ -342,6 +311,7 @@ footer strong {
     position: relative;
     width: 90%;
     max-width: 500px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger floating shadow for popup */
 }
 
 .close-btn {
@@ -390,6 +360,7 @@ footer strong {
     font-size: 1em;
     transition: background-color 0.3s ease;
     width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for button */
 }
 
 .popup-button:hover {
@@ -456,11 +427,11 @@ footer strong {
 /* Media Queries */
 @media (max-width: 768px) {
     .main-header {
-        justify-content: space-between; /* Adjust for mobile layout */
+        justify-content: space-between; /* Space out logo and menu */
     }
 
     .main-header .logo-text {
-        margin: 0; /* Remove centering on mobile */
+        display: none; /* Hide text on smaller screens if needed */
     }
 
     .main-nav .desktop-nav {
@@ -469,43 +440,24 @@ footer strong {
 
     .main-nav .menu-button {
         display: block;
-    }
-
-    .mobile-menu-icon {
-        display: flex;
+        margin-left: auto; /* Push menu button to the right */
     }
 
     .hero {
         height: 400px; /* Adjust hero height for smaller screens */
     }
+}
 
-    .slider-title {
-        font-size: 2em;
+@media (min-width: 769px) {
+    .main-header {
+        justify-content: space-between; /* Adjust for larger screens */
     }
 
-    .slider-subtitle {
-        font-size: 1em;
+    .main-nav .desktop-nav {
+        display: flex; /* Show desktop nav on larger screens */
     }
 
-    .offer-grid,
-    .choose-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 20px;
-    }
-
-    .offering-item i,
-    .offering-item img {
-        width: 60px;
-        height: 60px;
-    }
-
-    .offering-title,
-    .why-choose-text {
-        font-size: 1em;
-    }
-
-    .gallery-grid-dynamic {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 10px;
+    .main-nav .menu-button {
+        display: none; /* Hide menu button on larger screens */
     }
 }
