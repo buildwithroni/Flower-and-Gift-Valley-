@@ -1,78 +1,143 @@
-// script.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile Menu Functionality
+    const menuButton = document.querySelector('.menu-button');
+    const closeButton = document.querySelector('.mobile-menu .close-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
 
-// Hero Slider Functionality
-const slides = document.querySelectorAll('.hero-slide');
-let currentSlide = 0;
+    if (menuButton && closeButton && mobileMenu) {
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
 
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        slide.style.transform = `translateX(${i - index}00%)`; // Position slides
+        closeButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+
+        // Close mobile menu when a link is clicked (optional)
+        mobileMenu.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+    }
+
+    // Hero Image Animation (Simple Fade)
+    const heroImageContainer = document.querySelector('.hero-image-container');
+    const heroImages = ['slide1.png', 'slide2.png', 'slide3.png'];
+    let currentHeroIndex = 0;
+
+    if (heroImageContainer) {
+        setInterval(() => {
+            currentHeroIndex = (currentHeroIndex + 1) % heroImages.length;
+            const newImage = document.createElement('img');
+            newImage.src = heroImages[currentHeroIndex];
+            newImage.alt = 'Hero Image';
+            newImage.style.opacity = 0;
+            newImage.style.borderRadius = '15px';
+            newImage.style.position = 'absolute';
+            newImage.style.top = 0;
+            newImage.style.left = 0;
+            newImage.style.width = '100%';
+            newImage.style.height = '100%';
+            newImage.style.objectFit = 'cover';
+            newImage.addEventListener('load', () => {
+                heroImageContainer.appendChild(newImage);
+                setTimeout(() => {
+                    newImage.style.opacity = 1;
+                    const oldImage = heroImageContainer.querySelector('img:not(:last-child)');
+                    if (oldImage) {
+                        oldImage.style.opacity = 0;
+                        setTimeout(() => {
+                            oldImage.remove();
+                        }, 1000); // Match the fade-out transition duration
+                    }
+                }, 50);
+            });
+        }, 5000); // Change image every 5 seconds
+    }
+
+
+    // WhatsApp Redirection for Offerings
+    const offerItems = document.querySelectorAll('.offer-item');
+    const whatsappNumber = '+919474758147'; // Replace with the actual number
+
+    offerItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const category = item.getAttribute('data-category');
+            const message = encodeURIComponent(`I am interested in: ${category}`);
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
+            window.open(whatsappURL, '_blank');
+        });
     });
-    slides[index].classList.add('active');
-}
 
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-}
+    // Dynamic Gallery Image Slider
+    const galleryGrid = document.querySelector('.gallery-grid');
+    const galleryImages = Array.from({ length: 23 }, (_, i) => `gallery_img_${i + 1}.jpg`);
+    let currentGalleryIndex = 0;
+    const numberOfVisibleImages = 6; // For the 3x2 grid
 
-// Initialize slider
-showSlide(currentSlide);
+    function loadInitialGalleryImages() {
+        for (let i = 0; i < numberOfVisibleImages; i++) {
+            const img = document.createElement('img');
+            img.src = galleryImages[i % galleryImages.length];
+            img.alt = `Gallery Image ${i + 1}`;
+            img.classList.add('active'); // Initially show the first set
+            galleryGrid.appendChild(img);
+        }
+    }
 
-// Automatically advance the slider every 5 seconds (5000 milliseconds)
-setInterval(nextSlide, 5000);
+    function startGallerySlider() {
+        setInterval(() => {
+            const firstVisible = galleryGrid.querySelector('img.active');
+            if (firstVisible) {
+                firstVisible.classList.remove('active');
+                setTimeout(() => {
+                    firstVisible.remove();
+                    currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+                    const newImage = document.createElement('img');
+                    newImage.src = galleryImages[currentGalleryIndex];
+                    newImage.alt = `Gallery Image ${currentGalleryIndex + 1}`;
+                    newImage.style.opacity = 0; // Fade in
+                    newImage.classList.add('active');
+                    galleryGrid.appendChild(newImage);
+                    setTimeout(() => {
+                        newImage.style.opacity = 1;
+                    }, 50);
+                }, 1000); // Match CSS transition duration
+            } else {
+                // If no active images are found (shouldn't happen), reload initial
+                galleryGrid.innerHTML = '';
+                loadInitialGalleryImages();
+                currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+            }
+        }, 7500); // Change image every 7.5 seconds (adjust as needed)
+    }
 
-// Mobile Menu Functionality
-const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
-const mobileMenu = document.querySelector('.mobile-menu');
-const closeButton = document.querySelector('.mobile-menu .close-button');
-const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    if (galleryGrid && galleryImages.length >= numberOfVisibleImages) {
+        loadInitialGalleryImages();
+        startGallerySlider();
+    } else if (galleryGrid) {
+        // If less than 6 images, just load them without the slider
+        galleryImages.forEach((src, index) => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `Gallery Image ${index + 1}`;
+            galleryGrid.appendChild(img);
+        });
+    }
 
-mobileMenuIcon.addEventListener('click', () => {
-    mobileMenu.classList.add('open');
+    // Popup Form Functionality (using the onclick from HTML)
+    window.showPopup = function() {
+        const popup = document.getElementById('contact-popup');
+        if (popup) {
+            popup.style.display = 'flex';
+        }
+    };
+
+    window.hidePopup = function() {
+        const popup = document.getElementById('contact-popup');
+        if (popup) {
+            popup.style.display = 'none';
+        }
+    };
 });
-
-closeButton.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-});
-
-mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-    });
-});
-
-// Contact Popup Functionality
-const contactPopup = document.getElementById('contact-popup');
-
-function showPopup() {
-    contactPopup.style.display = 'flex';
-}
-
-function closePopup() {
-    contactPopup.style.display = 'none';
-}
-
-// Form Submission Handling (Example - You would typically send this data to a server)
-function handleFormSubmit(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    const fullName = document.getElementById('fullName').value;
-    const services = document.getElementById('services').value;
-    const location = document.getElementById('location').value;
-    const date = document.getElementById('date').value;
-    const contactNumber = document.getElementById('contactNumber').value;
-
-    console.log('Form submitted!');
-    console.log('Full Name:', fullName);
-    console.log('Service:', services);
-    console.log('Location:', location);
-    console.log('Delivery Date:', date);
-    console.log('Contact Number:', contactNumber);
-
-    // Here you would typically send this data to a server using an AJAX request
-    // For now, we'll just close the popup after submission
-    closePopup();
-    document.getElementById('contactForm').reset(); // Clear the form
-}
