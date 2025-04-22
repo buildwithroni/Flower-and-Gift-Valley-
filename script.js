@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
             newImage.src = heroImages[currentHeroIndex];
             newImage.alt = 'Hero Image';
             newImage.style.opacity = 0;
-            newImage.style.borderRadius = '15px';
+            newImage.style.borderRadius = '10px';
             newImage.style.position = 'absolute';
             newImage.style.top = 0;
             newImage.style.left = 0;
@@ -70,54 +70,51 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Dynamic Gallery Image Slider
+    // Dynamic Gallery Image Slider (Update all 6 images)
     const galleryGrid = document.querySelector('.gallery-grid');
     const galleryImages = Array.from({ length: 23 }, (_, i) => `gallery_img_${i + 1}.jpg`);
     let currentGalleryIndex = 0;
     const numberOfVisibleImages = 6; // For the 3x2 grid
+    const galleryTransitionDuration = 1000; // Match CSS transition
 
-    function loadInitialGalleryImages() {
+    function updateGalleryImages() {
+        if (!galleryGrid) return;
+        galleryGrid.querySelectorAll('img').forEach(img => {
+            img.classList.remove('active');
+            setTimeout(() => {
+                img.remove();
+            }, galleryTransitionDuration);
+        });
+
+        setTimeout(() => {
+            for (let i = 0; i < numberOfVisibleImages; i++) {
+                const img = document.createElement('img');
+                img.src = galleryImages[(currentGalleryIndex + i) % galleryImages.length];
+                img.alt = `Gallery Image ${currentGalleryIndex + i + 1}`;
+                img.style.opacity = 0;
+                img.classList.add('active');
+                galleryGrid.appendChild(img);
+                setTimeout(() => {
+                    img.style.opacity = 1;
+                }, 50);
+            }
+            currentGalleryIndex = (currentGalleryIndex + numberOfVisibleImages) % galleryImages.length;
+        }, galleryTransitionDuration);
+    }
+
+    if (galleryGrid && galleryImages.length >= numberOfVisibleImages) {
+        // Load initial images
         for (let i = 0; i < numberOfVisibleImages; i++) {
             const img = document.createElement('img');
             img.src = galleryImages[i % galleryImages.length];
             img.alt = `Gallery Image ${i + 1}`;
-            img.classList.add('active'); // Initially show the first set
+            img.classList.add('active');
             galleryGrid.appendChild(img);
         }
-    }
-
-    function startGallerySlider() {
-        setInterval(() => {
-            const firstVisible = galleryGrid.querySelector('img.active');
-            if (firstVisible) {
-                firstVisible.classList.remove('active');
-                setTimeout(() => {
-                    firstVisible.remove();
-                    currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
-                    const newImage = document.createElement('img');
-                    newImage.src = galleryImages[currentGalleryIndex];
-                    newImage.alt = `Gallery Image ${currentGalleryIndex + 1}`;
-                    newImage.style.opacity = 0; // Fade in
-                    newImage.classList.add('active');
-                    galleryGrid.appendChild(newImage);
-                    setTimeout(() => {
-                        newImage.style.opacity = 1;
-                    }, 50);
-                }, 1000); // Match CSS transition duration
-            } else {
-                // If no active images are found (shouldn't happen), reload initial
-                galleryGrid.innerHTML = '';
-                loadInitialGalleryImages();
-                currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
-            }
-        }, 7500); // Change image every 7.5 seconds (adjust as needed)
-    }
-
-    if (galleryGrid && galleryImages.length >= numberOfVisibleImages) {
-        loadInitialGalleryImages();
-        startGallerySlider();
+        currentGalleryIndex = numberOfVisibleImages % galleryImages.length;
+        setInterval(updateGalleryImages, 7500); // Change images every 7.5 seconds
     } else if (galleryGrid) {
-        // If less than 6 images, just load them without the slider
+        // If less than 6 images, just load them
         galleryImages.forEach((src, index) => {
             const img = document.createElement('img');
             img.src = src;
@@ -126,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Popup Form Functionality (using the onclick from HTML)
+    // Popup Form Functionality
     window.showPopup = function() {
         const popup = document.getElementById('contact-popup');
         if (popup) {
