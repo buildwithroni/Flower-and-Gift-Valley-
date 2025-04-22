@@ -33,7 +33,7 @@ body {
     background-color: #FAF8F5; /* Elegant White */
     padding: 15px 20px;
     display: flex;
-    justify-content: space-between; /* Space out logo, text, and menu */
+    justify-content: space-between; /* Space out logo and menu on mobile */
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -51,9 +51,8 @@ body {
 .main-header .logo-text {
     font-size: 1.8em; /* Slightly larger text */
     color: #6A2E35; /* Deep Wine */
-    margin: 0; /* Remove default margins */
-    flex-grow: 1; /* Allow text to take up available space */
-    text-align: center; /* Center the text */
+    margin: 0 auto; /* Center the text on larger screens */
+    display: none; /* Initially hide on smaller screens */
 }
 
 .main-nav {
@@ -72,6 +71,7 @@ body {
     cursor: pointer;
     color: #6A2E35; /* Deep Wine */
     display: block; /* Show menu button */
+    margin-left: auto; /* Push to the right */
 }
 
 .mobile-menu-icon {
@@ -453,11 +453,20 @@ footer strong {
         justify-content: space-between; /* Adjust for larger screens */
     }
 
+    .main-header .logo-text {
+        display: block; /* Show text on larger screens */
+        margin: 0 auto; /* Center it */
+    }
+
     .main-nav .desktop-nav {
         display: flex; /* Show desktop nav on larger screens */
     }
 
     .main-nav .menu-button {
         display: none; /* Hide menu button on larger screens */
+    }
+
+    .hero {
+        height: 500px; /* Maintain fixed height on larger screens */
     }
 }
