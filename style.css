@@ -11,7 +11,7 @@ body {
 }
 
 .floating-shadow {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle floating shadow */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* More pronounced floating shadow */
 }
 
 .section-title {
@@ -31,7 +31,7 @@ body {
 /* Header */
 .main-header {
     background-color: #FAF8F5; /* Elegant White */
-    padding: 15px 20px; /* Adjusted padding */
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -44,13 +44,14 @@ body {
 }
 
 .main-header .logo img {
-    max-height: 40px; /* Adjusted logo size */
+    max-height: 40px;
     margin-right: 10px;
 }
 
 .main-header .logo-text {
-    font-size: 1.5em; /* Adjusted text size */
+    font-size: 1.8em; /* Slightly larger text */
     color: #6A2E35; /* Deep Wine */
+    margin: 0 auto; /* Center the text */
 }
 
 .main-nav {
@@ -62,10 +63,9 @@ body {
     display: none;
     background: none;
     border: none;
-    font-size: 1.5em;
+    font-size: 1.8em; /* Slightly larger menu icon */
     cursor: pointer;
-    color:
-#6A2E35; /* Deep Wine */
+    color: #6A2E35; /* Deep Wine */
 }
 
 .main-nav .nav-links {
@@ -110,8 +110,8 @@ body {
     position: relative;
     width: 100%;
     overflow: hidden;
-    height: 50vh; /* Adjusted height for landscape view */
-    border: 2px solid #708C64; /* Moss Green outline */
+    height: 500px; /* Fixed height */
+    border-radius: 10px; /* Rounded corners */
 }
 
 .hero-slider-container {
@@ -126,37 +126,29 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: contain; /* Adjust as needed: cover, contain, auto */
+    background-size: cover; /* Cover the entire area */
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #FAF8F5; /* Elegant White */
+    transition: opacity 1s ease-in-out, transform 0.8s ease-in-out; /* Added transform transition */
+    transform: translateX(100%); /* Start off-screen */
 }
 
 .hero-slide.active {
     opacity: 1;
+    transform: translateX(0%); /* Slide into view */
 }
 
-.slider-text-container {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
+.hero-slide:nth-child(1).active {
+    transform: translateX(0%);
 }
 
-.slider-title {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+.hero-slide:nth-child(2).active {
+    transform: translateX(0%);
 }
 
-.slider-subtitle {
-    font-size: 1.2em;
-    color: #E8B6B8; /* Floral Pink */
+.hero-slide:nth-child(3).active {
+    transform: translateX(0%);
 }
 
 /* Offerings Section */
@@ -177,7 +169,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #EDE3DA; /* Warm Beige */
+    background-color: #E8B6B8; /* Floral Pink */
     padding: 20px;
     border-radius: 10px;
     transition: transform 0.3s ease;
@@ -187,12 +179,17 @@ body {
     transform: translateY(-5px);
 }
 
+.offering-item i,
 .offering-item img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
     margin-bottom: 15px;
+    color: #708C64; /* Moss Green for icons */
+}
+
+.offering-item img {
+    border-radius: 50%; /* Make image icons circular if needed */
 }
 
 .offering-title {
@@ -205,7 +202,7 @@ body {
 .gallery-dynamic {
     padding: 40px 20px;
     text-align: center;
-    background-color: #EDE3DA; /* Warm Beige */
+    background-color: #E8B6B8; /* Floral Pink */
 }
 
 .gallery-grid-dynamic {
@@ -217,7 +214,7 @@ body {
 
 .gallery-box-dynamic {
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 10px; /* Rounded corners for gallery images */
 }
 
 .gallery-box-dynamic img {
@@ -225,6 +222,7 @@ body {
     height: auto;
     display: block;
     transition: transform 0.3s ease-in-out;
+    border-radius: 10px; /* Ensure rounded corners on images */
 }
 
 .gallery-box-dynamic:hover img {
@@ -250,7 +248,7 @@ body {
 .why-choose {
     padding: 40px 20px;
     text-align: center;
-    background-color: #FAF8F5; /* Elegant White */
+    background-color: #E8B6B8; /* Floral Pink */
 }
 
 .choose-grid {
@@ -264,7 +262,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #EDE3DA; /* Warm Beige */
+    background-color: #FAF8F5; /* Elegant White */
     padding: 20px;
     border-radius: 10px;
     transition: transform 0.3s ease;
@@ -274,10 +272,9 @@ body {
     transform: translateY(-5px);
 }
 
-.choose-item img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
+.choose-item i {
+    font-size: 3em;
+    color: #708C64; /* Moss Green */
     margin-bottom: 15px;
 }
 
@@ -288,17 +285,11 @@ body {
     text-align: center;
 }
 
-.why-choose .fa-whatsapp {
-    font-size: 3em;
-    color: #708C64; /* Moss Green */
-    margin-bottom: 15px;
-}
-
 /* Delivery Areas Section */
 .delivery-areas {
     padding: 40px 20px;
     text-align: center;
-    background-color: #EDE3DA; /* Warm Beige */
+    background-color: #E8B6B8; /* Floral Pink */
 }
 
 .delivery-content {
@@ -315,7 +306,7 @@ body {
 
 /* Footer */
 footer {
-    background-color: #333333; /* Charcoal Gray */
+    background-color: #6A2E35; /* Deep Wine */
     color: #FAF8F5; /* Elegant White */
     text-align: center;
     padding: 20px;
@@ -345,7 +336,7 @@ footer strong {
 }
 
 .popup-form {
-    background-color: #FAF8F5; /* Elegant White */
+    background-color: #E8B6B8; /* Floral Pink */
     padding: 30px;
     border-radius: 10px;
     position: relative;
@@ -390,7 +381,7 @@ footer strong {
 }
 
 .popup-button {
-    background-color: #6A2E35; /* Deep Wine */
+    background-color: #708C64; /* Moss Green */
     color: #FAF8F5; /* Elegant White */
     padding: 10px 15px;
     border: none;
@@ -402,7 +393,7 @@ footer strong {
 }
 
 .popup-button:hover {
-    background-color: #4A1D23; /* Darker shade of Deep Wine */
+    background-color: #526A48; /* Darker shade of Moss Green */
 }
 
 /* Mobile Menu Styles */
@@ -412,7 +403,7 @@ footer strong {
     left: -300px;
     width: 300px;
     height: 100%;
-    background-color: #FAF8F5; /* Elegant White */
+    background-color: #E8B6B8; /* Floral Pink */
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
     z-index: 1001;
     transition: left 0.3s ease-in-out;
@@ -429,7 +420,7 @@ footer strong {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    border-bottom: 1px solid #EDE3DA; /* Warm Beige */
+    border-bottom: 1px solid #6A2E35; /* Deep Wine */
 }
 
 .mobile-menu .menu-header .logo img {
@@ -453,17 +444,25 @@ footer strong {
     padding: 15px 20px;
     text-decoration: none;
     color: #333333; /* Charcoal Gray */
-    border-bottom: 1px solid #EDE3DA; /* Warm Beige */
+    border-bottom: 1px solid #6A2E35; /* Deep Wine */
     transition: background-color 0.3s ease;
 }
 
 .mobile-menu nav ul li a:hover {
-    background-color: #EDE3DA; /* Warm Beige */
+    background-color: #FAF8F5; /* Elegant White */
     color: #6A2E35; /* Deep Wine */
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
+    .main-header {
+        justify-content: space-between; /* Adjust for mobile layout */
+    }
+
+    .main-header .logo-text {
+        margin: 0; /* Remove centering on mobile */
+    }
+
     .main-nav .desktop-nav {
         display: none;
     }
@@ -477,7 +476,7 @@ footer strong {
     }
 
     .hero {
-        height: 50vh; /* Maintain landscape-oriented height on smaller screens */
+        height: 400px; /* Adjust hero height for smaller screens */
     }
 
     .slider-title {
@@ -494,10 +493,10 @@ footer strong {
         gap: 20px;
     }
 
-    .offering-item img,
-    .choose-item img {
-        width: 80px;
-        height: 80px;
+    .offering-item i,
+    .offering-item img {
+        width: 60px;
+        height: 60px;
     }
 
     .offering-title,
