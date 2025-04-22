@@ -7,6 +7,7 @@ let currentSlide = 0;
 function showSlide(index) {
     slides.forEach((slide, i) => {
         slide.classList.remove('active');
+        slide.style.transform = `translateX(${i - index}00%)`; // Position slides
     });
     slides[index].classList.add('active');
 }
@@ -16,11 +17,11 @@ function nextSlide() {
     showSlide(currentSlide);
 }
 
+// Initialize slider
+showSlide(currentSlide);
+
 // Automatically advance the slider every 5 seconds (5000 milliseconds)
 setInterval(nextSlide, 5000);
-
-// Initial display
-showSlide(currentSlide);
 
 // Mobile Menu Functionality
 const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
